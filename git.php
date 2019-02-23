@@ -31,7 +31,7 @@ exec("git diff --name-only $lastCommit $headCommit",$result);
 //print_r($result);
 $posts=[];
 foreach($result as $r){
-    if(substr( $r, 0, strlen("_posts/" )) === "_posts/" && file_exists($r)){
+    if(strpos($r,'_posts')>-1 && file_exists($r)){
         $posts[] = $r;
         if(endsWith($r,".md")){
             $content = file_get_contents($r);
