@@ -21,3 +21,4 @@ caches
 archives
 wp-content/uploads
 wp-content/cache
+error_log
