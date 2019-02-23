@@ -15,6 +15,7 @@ function endsWith($haystack, $needle)
 //git rev-parse HEAD
 //echo exec("git diff --name-only c74d055b34c932faf9a726e70c6bf958554890e9 6c45e9a113f6d6437168d3b43a3199016a980c9c",$out);
 //echo exec("cd ~/lamp/jekyll && git diff --name-only HEAD HEAD~5",$out);
+$headCommit=exec("git pull");
 $headCommit=exec("git rev-parse HEAD");
 
 
