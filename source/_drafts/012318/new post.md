@@ -1,10 +1,9 @@
 ---
 layout: post
 title:  "new post"
-title2:  "new post"
-date:   2018-11-02 15:18:44  +0800
+date:   2019-02-23 12:48:53  +0800
 source:  ""
-fileName:  "100224"
+fileName:  "012318"
 lang:  "zh_CN"
 published: false
 
