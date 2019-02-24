@@ -16,3 +16,5 @@ published: true
 例如可以通过下面的一条命令来安装 LAMP，当然前提是你先安装好 docker.
 
     docker run -d -p 80:80 -p 3306:3306 -v ～/www/:/var/www/html -v ～/mysql:/var/lib/mysql --name mylamp tutum/lamp
+
+其中 tutum/lamp 是一个 LAMP 镜像。

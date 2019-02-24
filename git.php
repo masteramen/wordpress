@@ -22,7 +22,7 @@ $currentTIme = date("Y-m-d H:i:s",time())."\n";
 $lastSyncTime = get_option( '_last_sync_time', '');
 
 echo "lastSyncTime:${lastSyncTime}\n";
-echo "current Time:${lastSyncTime}\n";
+echo "current Time:${currentTIme}\n";
 //echo "git diff --name-only $lastCommit $headCommit\n";
 //exec("git diff --name-only $lastCommit $headCommit",$result);
 
@@ -136,6 +136,8 @@ foreach($result as $r){
         }
     }
 }
-update_option( '_last_sync_time',  date("Y-m-d H:i:s",time()) );
+if(count($posts)>0){
+    update_option( '_last_sync_time',  date("Y-m-d H:i:s",time()) );
+}
 print_r($posts);
 
