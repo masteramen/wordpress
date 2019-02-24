@@ -20,6 +20,7 @@ $headCommit=exec("git rev-parse HEAD");
 
 
 $lastCommit = get_option( '_last_commit_id', '');
+$lastCommit = '0afd1e798390f8af92b8de0c552afe03968d6510';
 
 if(!$lastCommit){
     echo "git rev-list HEAD | tail -n 1\n ";
@@ -32,6 +33,7 @@ exec("git diff --name-only $lastCommit $headCommit",$result);
 //print_r($result);
 $posts=[];
 foreach($result as $r){
+echo "$r\n";
     if(strpos($r,'_posts')>-1 && file_exists($r)){
         $posts[] = $r;
         if(endsWith($r,".md")){
