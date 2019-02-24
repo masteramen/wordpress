@@ -22,6 +22,10 @@ echo exec("git pull")."\n";
 $currentTIme = exec('date "+%Y-%m-%d %H:%M:%S"');
 $lastSyncTime = get_option( '_last_sync_time', '');
 
+if($_GET['lastSyncTime']){
+    $lastSyncTime=$_GET['lastSyncTime'];
+}
+
 echo "lastSyncTime:${lastSyncTime}\n";
 echo "current Time:${currentTIme}\n";
 //echo "git diff --name-only $lastCommit $headCommit\n";
@@ -35,8 +39,8 @@ if($lastSyncTime){
 $posts=[];
 foreach($result as $r){
     if(strpos($r,'_posts')>-1 && file_exists($r)){
-        $posts[] = $r;
         if(endsWith($r,".md")){
+            $posts[] = $r;
             $content = file_get_contents($r);
             if( '---' === substr($content, 0, 3 ))
             {
