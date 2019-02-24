@@ -50,7 +50,6 @@ foreach($result as $r){
                     require_once __DIR__ . '/vendor/mustangostang/spyc/spyc.php';
                 }
                 $meta = spyc_load( $matches[1] );                
-
                 if ( isset( $meta['permalink'] ) ) {
                     $meta['permalink'] = str_replace( home_url(), '', $meta['permalink'] );
                 }
@@ -95,7 +94,15 @@ foreach($result as $r){
                         $args['post_status'] = true === $meta['published'] ? 'publish' : 'draft';
                         unset( $meta['published'] );
                     }
-        
+                    if ( array_key_exists( 'categories', $meta ) ) {
+                        $args['post_category'] = $meta['categories'];
+                        unset( $meta['categories'] );
+                    }
+                    if ( array_key_exists( 'tags', $meta ) ) {
+                        $args['tags_input'] = $meta['tags'];
+                        unset( $meta['tags'] );
+                    }
+                    
                     if ( array_key_exists( 'post_title', $meta ) ) {
                         $args['post_title'] = $meta['post_title'];
                         unset( $meta['post_title'] );
