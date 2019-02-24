@@ -19,7 +19,7 @@ function endsWith($haystack, $needle)
 echo exec("git pull")."\n";
 //$headCommit=exec("git rev-parse HEAD");
 
-$currentTIme = date("Y-m-d H:i:s",time())."\n";
+$currentTIme = exec('date "+%Y-%m-%d %H:%M:%S"');
 $lastSyncTime = get_option( '_last_sync_time', '');
 
 echo "lastSyncTime:${lastSyncTime}\n";
@@ -138,7 +138,7 @@ foreach($result as $r){
     }
 }
 if(count($posts)>0){
-    update_option( '_last_sync_time',  date("Y-m-d H:i:s",time()) );
+    update_option( '_last_sync_time',  $currentTIme );
 }
 print_r($posts);
 
