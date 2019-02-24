@@ -15,25 +15,24 @@ function endsWith($haystack, $needle)
 //git rev-parse HEAD
 //echo exec("git diff --name-only c74d055b34c932faf9a726e70c6bf958554890e9 6c45e9a113f6d6437168d3b43a3199016a980c9c",$out);
 //echo exec("cd ~/lamp/jekyll && git diff --name-only HEAD HEAD~5",$out);
-$headCommit=exec("git pull");
-$headCommit=exec("git rev-parse HEAD");
+echo exec("git pull")."\n";
+//$headCommit=exec("git rev-parse HEAD");
 
+$currentTIme = date("Y-m-d H:i:s",time())."\n";
+$lastSyncTime = get_option( '_last_sync_time', '');
 
-$lastCommit = get_option( '_last_commit_id', '');
-$lastCommit = '0afd1e798390f8af92b8de0c552afe03968d6510';
+echo "lastSyncTime:${lastSyncTime}\n";
+echo "current Time:${lastSyncTime}\n";
+//echo "git diff --name-only $lastCommit $headCommit\n";
+//exec("git diff --name-only $lastCommit $headCommit",$result);
 
-if(!$lastCommit){
-    echo "git rev-list HEAD | tail -n 1\n ";
-    $lastCommit=exec("git rev-list HEAD | tail -n 1");
+if($lastSyncTime){
+    exec("find . -newermt '${lastSyncTime}' -type f",$result);
+}else{
+    exec("find .  -type f",$result);
 }
-echo "headCommit:$headCommit\n";
-echo "lastCommit:$lastCommit\n";
-echo "git diff --name-only $lastCommit $headCommit\n";
-exec("git diff --name-only $lastCommit $headCommit",$result);
-//print_r($result);
 $posts=[];
 foreach($result as $r){
-echo "$r\n";
     if(strpos($r,'_posts')>-1 && file_exists($r)){
         $posts[] = $r;
         if(endsWith($r,".md")){
@@ -137,6 +136,6 @@ echo "$r\n";
         }
     }
 }
-update_option( '_last_commit_id', $headCommit );
+update_option( '_last_sync_time',  date("Y-m-d H:i:s",time()) );
 print_r($posts);
 

@@ -1670,7 +1670,7 @@ blockquote:after,
  */
 
 .site-main > article {
-  /* margin-bottom: 3.5em; */
+  margin-bottom: 1.5em;
   position: relative;
 }
 
@@ -1689,7 +1689,7 @@ blockquote:after,
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .entry-title a {
@@ -2849,7 +2849,7 @@ p > video {
     font-size: 33px;
     font-size: 2.0625rem;
     line-height: 1.2727272727;
-    margin-bottom: 0.8484848485em;
+    margin-bottom: 0.1em;
   }
 
   .entry-content blockquote.alignleft,
@@ -3426,7 +3426,7 @@ p > video {
   }
 
   .widget {
-    margin-bottom: 4.307692308em;
+    margin-bottom: 1em;
   }
 
   /* .site-main > article {
@@ -3437,7 +3437,7 @@ p > video {
     font-size: 40px;
     font-size: 2.5rem;
     line-height: 1.225;
-    margin-bottom: 1.05em;
+    margin-bottom: 0.5m;
   }
 
   .format-aside .entry-title,
@@ -3814,7 +3814,7 @@ p > video {
   .entry-title {
     font-size: 24.75pt;
     line-height: 1.2727272727;
-    margin-bottom: 1.696969697em;
+    margin-bottom: 0.5em;
   }
 
   .format-aside .entry-title,
