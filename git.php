@@ -1,4 +1,5 @@
 <?php
+header('HTTP/1.1 200 OK');
 error_reporting(E_ALL);
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 
