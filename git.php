@@ -48,7 +48,7 @@ foreach($result as $r){
                 preg_match( '/---(.*?)---(.*)/ms', $content, $matches );
                 array_pop( $matches );
                 if (!class_exists('Spyc')) {
-                    require_once __DIR__ . '/vendor/mustangostang/spyc/spyc.php';
+                    require_once __DIR__ . '/vendor/mustangostang/spyc/Spyc.php';
                 }
                 $meta = spyc_load( $matches[1] );                
                 if ( isset( $meta['permalink'] ) ) {

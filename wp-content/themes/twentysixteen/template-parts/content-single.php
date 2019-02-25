@@ -35,12 +35,16 @@
 			}
 		?>
 	<div style="width:50%;min-width:300px;height:250px;">
-	    <!-- 300_250_1 -->
-	    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477174171188196"
-		data-ad-slot="4142158067"></ins>
-	    <script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	    </script>
+<!-- autosize -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9477174171188196"
+     data-ad-slot="9925340108"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 	</div>
 
 	</div><!-- .entry-content -->
