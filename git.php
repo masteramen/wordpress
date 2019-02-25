@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 header('HTTP/1.1 200 OK');
@@ -131,7 +130,9 @@ foreach($result as $r){
                 }
                 $args['comment_status'] = 'closed';
                 global $wpdb;
-                $post_id = $wpdb->get_var( "select post_id from $wpdb->postmeta where meta_value like '%$r' and meta_key='postPath' limit 1" );
+                $arr = explode('_posts/','source/_posts/jfkdjfd');
+                $path = $arr[1];
+                $post_id = $wpdb->get_var( "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' limit 1" );
                 if($post_id){
                     echo "update post id $post_id\n";
                     $args['ID']=$post_id;
