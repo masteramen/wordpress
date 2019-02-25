@@ -34,7 +34,7 @@
 				get_template_part( 'template-parts/biography' );
 			}
 		?>
-	<div style="width:50%;min-width:300px;height:250px;">
+	<div style="min-width:300px;min-height:250px;">
 <!-- autosize -->
 <ins class="adsbygoogle"
      style="display:block"
