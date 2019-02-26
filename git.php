@@ -132,7 +132,7 @@ foreach($result as $r){
                 global $wpdb;
                 $arr = explode('_posts/',$r);
                 $path = $arr[1];
-                $post_id = $wpdb->get_var( "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' limit 1" );
+                $post_id = $wpdb->get_var( "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' order by post_id asc limit 1" );
                 if($post_id){
                     echo "update post id $post_id\n";
                     $args['ID']=$post_id;
