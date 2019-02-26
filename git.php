@@ -130,7 +130,7 @@ foreach($result as $r){
                 }
                 $args['comment_status'] = 'closed';
                 global $wpdb;
-                $arr = explode('_posts/','source/_posts/jfkdjfd');
+                $arr = explode('_posts/',$r);
                 $path = $arr[1];
                 $post_id = $wpdb->get_var( "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' limit 1" );
                 if($post_id){
