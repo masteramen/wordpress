@@ -6,7 +6,7 @@ source:  ""
 fileName:  "012668"
 lang:  "zh_CN"
 published: true
-
+categories: [SpringCloud]
 ---
 
 # 关于Spring Cloud 
