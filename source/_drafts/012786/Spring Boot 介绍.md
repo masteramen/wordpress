@@ -24,7 +24,10 @@ Spring Boot是一个基于Java的开源框架，用于创建微服务。它由Pi
 - 生产时间较短
 
 # 什么是Spring Boot？
+总的来说，Spring Boot是一个构建在Spring框架之上的项目，它提供了一种更简单，更快捷的方法来设置，配置和运行简单和基于Web的应用程序。
 Spring Boot为Java开发人员提供了一个很好的平台，可以开发一个可以运行的独立和生产级Spring应用程序。您可以开始使用最少的配置，而无需进行整个Spring配置设置。
+
+Spring Boot 解决了在Spring核心框架中需要自己配置许多配置文件的问题，它巧妙地根据你选择的依赖项自动配置应用程序，还简化了应用的部署过程。
 
 ## Spring Boot有什么好处？
 Spring Boot为开发人员提供以下优势 ：
