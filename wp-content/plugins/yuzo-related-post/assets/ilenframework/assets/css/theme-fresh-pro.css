@@ -1,0 +1,217 @@
+/*
+    theme      : Fresh
+    type       : Theme-Options for plugin and theme
+    since      : 04/01/2016
+*/
+
+
+/* =PLUGINS */
+.ilenplugin-options .has-right-sidebar #post-body-content{
+  width: 95%;
+}
+.ilenplugin-options #tabs > ul li a{
+  padding: 11px 11px;
+  font-size: 13px;
+  border-top: 2px solid #E2E2E2;
+}
+.ilenplugin-options .my-wrap-plugin header h2{
+  margin-top: 17px!important;
+}
+.ilenplugin-options .ilentabs #nav h2 a.nav-tab-active, .ilenplugin-options #tabs .ui-state-active a {
+  color: #989898!important;
+}
+.ilenplugin-options #tabs > ul li{
+  margin: 0 7px;
+}
+.ilenplugin-options header {
+  /*border-top: 9px solid #52aae2;*/
+  border-top: 9px solid #326E94;
+}
+.ilenplugin-options #tabs .ui-state-active a {
+  /*border-top: 2px solid #52aae2!important;*/
+  border-top: 2px solid #326E94!important;
+}
+.ilenplugin-options .row .a {
+  width: 35%;
+}
+.ilenplugin-options .row .b {
+  width: 63%;
+}
+.ilenplugin-options .postbox {
+  box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+}
+.ilenplugin-options .upload input[type="text"] {
+  width: 73.5%!important;
+}
+.ilenplugin-options .row.upload .preview {
+  width: 35%;
+}
+.ilenplugin-options .row {
+  border-bottom: 1px dotted #E4E4E4;
+}
+.ilenplugin-options .ilen-page-content .grid.grid-pad{
+  max-width: 100%;
+}
+.ilenplugin-options .row{
+  padding: 10px 0;
+}
+.ilenplugin-options .divide {
+  text-transform       : uppercase;
+  background-color     : #ECECEC;
+  padding              : 5px 15px;
+  font-size            : 14px;
+  height               : auto;
+  color                : #909090;
+  -webkit-border-radius: 0;
+  position             : relative;
+  left                 : 0;
+  width                : 120%;
+  line-height          : 19px;
+  margin-left          : -12px;
+  padding-left         : 16px!important;
+}
+.ilenplugin-options .ibtn{
+  height: 47px;
+  line-height: 3.3!important;
+  padding: 1px 28px;
+  line-height: 3.5;
+  font-size: 15px;
+  
+}
+.ilenplugin-options .ibtn span {
+  width       : 50px;
+  height      : 48px;
+  margin-right: 30px;
+}
+.ilenplugin-options a span i, .ilenplugin-options a span i {
+  margin-left: 18px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.ilenplugin-options .btn_save.ibtn,
+.ilenplugin-options .btn_reset.ibtn{
+  padding-left: 0!important;
+}
+.ilenplugin-options .row .a strong {
+  font-weight: 500;
+  color      : gray;
+}
+.ilenplugin-options .postbox .help {
+  color: #b7b7b7;
+}
+
+
+
+
+
+
+
+
+
+
+/* =Metabox */
+.ilenmetabox-options.plugin-pro .select2_search_post_dragdrop li{
+  list-style-type: none;
+  float: left;
+  display: block;
+  width: 23%;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-family: verdana;
+  color: rgb(70, 70, 70);
+  border: 1px solid rgb(225, 225, 225);
+  padding: 9px;
+  position: relative;
+  box-sizing: border-box;
+  margin-right: 10px;
+  height: 162px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 17px;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post_dragdrop li img{
+  border: 0;
+  width: 100%;
+  height: 100px;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post_dragdrop .select2_list_close{
+  font-size: 10px;
+}
+.select2-container .select2-choice{
+  border-radius:0!important;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post_dragdrop{
+  border: 0;
+  padding: 0;
+  clear: both;
+  width: 100%;
+  margin: 10px 0;
+  display: inline-block;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post_dragdrop li:last-child {
+  border: 1px solid rgb(225, 225, 225);
+}
+.select2-drop-active {
+  border: 1px solid #fb7658!important;
+  border-top: 0!important;
+}
+.select2-container-active .select2-choice, .select2-container-active .select2-choices {
+  border: 1px solid #fb7658!important;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post {
+  width: 55%;
+  float: left;
+  margin-right: 15px;
+}
+.ilenmetabox-options.plugin-pro select.filter_select2 {
+  width: 22%;
+  float: left;
+  margin-right: 10px;
+}
+.ilenmetabox-options.plugin-pro .select2_search_post_button_add {
+  width: 13%;
+  float: left;
+  position: relative;
+}
+.ilenmetabox-options.plugin-pro .ilencontentwrapelements > ul {
+  clear:both;
+  width: 100%!important;
+}
+.ilenmetabox-options.plugin-pro .ui-tabs.ui-tabs-vertical .ui-tabs-nav li{
+  width: 20%!important;
+  float: left!important;
+  clear: none!important;
+}
+.ilenmetabox-options.plugin-pro .ui-tabs.ui-tabs-vertical .ui-tabs-panel{
+  width: 100%!important;
+}
+.ilenmetabox-options.plugin-pro .ui-tabs.ui-tabs-vertical .ui-tabs-nav {
+  background   : inherit;
+  padding      : 0 10px;
+  margin-top   : 5px;
+  margin-bottom: -5px;
+}
+.ilenmetabox-options.plugin-pro .ui-tabs.ui-tabs-vertical .ui-tabs-nav li a{
+  margin-bottom: 0!important;
+  box-shadow   : none!important;
+}
+
+
+
+
+
+
+
+
+/* =Widgets */
+.ilenwidget-tabs .row.ilentheme_row_checkbox .ilen_check_list > div {
+  display: inline-block;
+  width: 32%;
+}
+.ilenwidget-options .input_4 .input_4--square {
+  width: 15%;
+  float: left;
+}
+.ilenwidget-options [type="checkbox"]:not(:checked) + label, .ilenwidget-options [type="checkbox"]:checked + label{
+  padding-left: 63px!important;
+}
