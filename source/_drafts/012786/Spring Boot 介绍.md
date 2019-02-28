@@ -70,5 +70,4 @@ Spring Boot使用`@ComponentScan`批注自动扫描项目中包含的所有组�
 
 # 如何开始创建Spring Boot项目
 创建Spring Boot项目可通过 Spring Initializr https://start.spring.io/，选择模块和组件下载生成的项目结构和依赖包配置，导入开发工具中即可快速创建一个Spring Boot 项目。
-
 ![](2019-02-28-09-31-02.png)
