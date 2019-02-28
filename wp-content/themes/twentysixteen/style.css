@@ -2872,15 +2872,6 @@ p > video {
     margin-left: 0;
   }
 
-  .entry-content ul,
-  .entry-summary ul,
-  .comment-content ul,
-  .entry-content ol,
-  .entry-summary ol,
-  .comment-content ol {
-    margin-left: 0;
-  }
-
   .entry-content li > ul,
   .entry-summary li > ul,
   .comment-content li > ul,
