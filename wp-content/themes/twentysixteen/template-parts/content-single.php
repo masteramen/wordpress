@@ -48,6 +48,8 @@
 	</div>
 
 	</div><!-- .entry-content -->
+	<?php echo do_shortcode("[rp4wp]"); ?>
+	<?php echo do_shortcode("rp4wp"); ?>
 
 	<footer class="entry-footer">
 		<?php
