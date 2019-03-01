@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 header('HTTP/1.1 200 OK');
+global $wpdb;
 
 function endsWith($haystack, $needle)
 {
@@ -95,7 +96,19 @@ foreach($result as $r){
                         unset( $meta['published'] );
                     }
                     if ( array_key_exists( 'categories', $meta ) ) {
-                        $args['post_category'] = $meta['categories'];
+                        $args['post_category'] = [];
+                        foreach($meta['categories'] as $c){
+                            $cat = get_category_by_slug($c);
+                            if(isset($cat)){
+                                $args['post_category'][]= $wpdb->get_var(
+                                    $wpdb->prepare(
+                                        "select t.term_id from $wpdb->term_taxonomy tt , $wpdb->terms t where tt.taxonomy='category' and t.term_id=tt.term_id and (binary t.name=%s or binary t.slug=%s) limit 1",$c,$c
+                                    )
+                                ); 
+                            }
+
+
+                        }
                         unset( $meta['categories'] );
                     }
                     if ( array_key_exists( 'tags', $meta ) ) {
@@ -129,7 +142,6 @@ foreach($result as $r){
                     }
                 }
                 $args['comment_status'] = 'closed';
-                global $wpdb;
                 $arr = explode('_posts/',$r);
                 $path = $arr[1];
                 $sql = "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' order by post_id asc limit 1" ;
@@ -138,6 +150,7 @@ foreach($result as $r){
                 if($post_id){
                     echo "update post id $post_id\n";
                     $args['ID']=$post_id;
+                    print_r($args);
                     $post_id = wp_update_post( $args, true );
                 }else{
                     echo "insert new post id $post_id\n";

@@ -10,6 +10,7 @@ my.php
 static
 blog/
 .htaccess.bak
+.htaccess
 MY_USER_CACHE_DIR
 .well-known
 wp-config.php
