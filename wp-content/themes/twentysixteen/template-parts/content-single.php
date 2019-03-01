@@ -63,3 +63,4 @@
 		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+<?php echo do_shortcode('[yuzo_related]'); ?>
