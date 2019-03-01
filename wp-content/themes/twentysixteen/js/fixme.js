@@ -3,6 +3,7 @@
     height = height || 0;
     height = height == "top" ? 0 : height;
     return this.each(function() {
+      
       if (height == "bottom") {
         height = document.documentElement.clientHeight - this.scrollHeight;
       } else if (height < 0) {
@@ -15,6 +16,7 @@
         r,
         l = that.offset().left;
       dir = dir == "bottom" ? dir : "top"; //默认滚动方向向下
+      var holder = $('<div />').hide().insertAfter(that).height(that.height());
       if (window.XMLHttpRequest) {
         //非ie6用fixed
 
@@ -38,6 +40,7 @@
                 top: height,
                 left: l
               });
+              holder.show();
             }
           } else {
             if (
@@ -49,6 +52,7 @@
                 position: "static"
               });
               oldHeight = false;
+              holder.hide();
             } else if (
               dir == "bottom" &&
               (document.documentElement.scrollTop || document.body.scrollTop) >
@@ -58,47 +62,11 @@
                 position: "static"
               });
               oldHeight = false;
+              holder.hide();
             }
           }
         });
-      } else {
-        //for ie6
-        $(window).scroll(function() {
-          if (oldHeight === false) {
-            //恢复前只执行一次，减少reflow
-            if (
-              (getHeight() >= 0 && dir == "top") ||
-              (getHeight() <= 0 && dir == "bottom")
-            ) {
-              oldHeight = that.offset().top - height;
-              r = document.createElement("span");
-              p = that[0].parentNode;
-              p.replaceChild(r, that[0]);
-              document.body.appendChild(that[0]);
-              that[0].style.position = "absolute";
-            }
-          } else if (
-            (dir == "top" &&
-              (document.documentElement.scrollTop || document.body.scrollTop) <
-                oldHeight) ||
-            (dir == "bottom" &&
-              (document.documentElement.scrollTop || document.body.scrollTop) >
-                oldHeight)
-          ) {
-            //结束
-            that[0].style.position = "static";
-            p.replaceChild(that[0], r);
-            r = null;
-            oldHeight = false;
-          } else {
-            //滚动
-            that.css({
-              left: l,
-              top: height + document.documentElement.scrollTop
-            });
-          }
-        });
-      }
+      } 
     });
   };
 })(jQuery);

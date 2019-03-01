@@ -4,8 +4,7 @@ Yuzo in post
 .yuzo_related_post{
 
 	overflow: hidden;
-	padding: 10px 0;
-	margin: 10px 0;
+	margin: 10px;
   width: 100%;
   display: block;
   /*float: left;*/  /*problem with other plugins*/
