@@ -48,7 +48,6 @@
 	</div>
 
 	</div><!-- .entry-content -->
-
 	<footer class="entry-footer">
 		<?php
 			edit_post_link(
