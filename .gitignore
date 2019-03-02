@@ -17,8 +17,8 @@ wp-config.php
 bookmarks
 public
 caches
-2017
-2018
+./2017
+./2018
 archives
 wp-content/uploads
 wp-content/cache
