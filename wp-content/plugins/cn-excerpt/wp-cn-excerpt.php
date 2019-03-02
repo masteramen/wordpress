@@ -236,7 +236,6 @@ class AdvancedCNExcerpt
 
         //parse
         $tokens = preg_split("/(\n|<.*?>)/", $text, 0, PREG_SPLIT_DELIM_CAPTURE);
-
         foreach ($tokens as $token) { // Parse each token
             $token = trim($token);
 
@@ -282,9 +281,9 @@ class AdvancedCNExcerpt
                 $out .= $token;
             }
 
-            preg_match('/<([a-z]+)/', trim($token), $matches);
+           // preg_match('/<([a-z]+)/', trim($token), $matches);
 
-            empty($matches[1]) || $lastTagName = $matches[1];
+           // empty($matches[1]) || $lastTagName = $matches[1];
         }
 
         return force_balance_tags($out);
