@@ -1,8 +1,43 @@
 <?php
+ini_set("display_errors", "On");
 error_reporting(E_ALL);
+ini_set("display_errors", "On");  
+error_reporting(E_ALL); 
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 header('HTTP/1.1 200 OK');
 global $wpdb;
+// '/(!\[(.*)\]\s?\()(.*)((.png|.gif|.jpg|.jpeg)?)((.*)\))/'
+
+function handleMdImage($match){
+    global $r;
+    if (preg_match('/^http[s]?:\/\/.*?/', $match[3], $m)) {
+        return $match[0];
+    }
+    $year='';
+    if (preg_match('/\d{4}/', $match[3], $year_matches)) {
+        $year = $year_matches[0].'/';
+    }else if(preg_match('/.*?\/(\d{4})\/.*?/', $r, $year_matches)){
+        $year = $year_matches[1].'/';
+    }
+    $toDir= dirname( __FILE__ ).'/wp-content/uploads/'.$year;
+    $imageFileName = $match[3].$match[4];
+    echo "$imageFileName \n";
+    $toFile= $toDir.$imageFileName;
+    $fromFile = dirname($r).'/'.$imageFileName ;
+    echo "from:$fromFile \n";
+    echo "to:$toFile \n";
+
+    if (file_exists($fromFile) && !file_exists($toFile)) {
+        if(!file_exists($toDir)){
+            mkdir($toDir, 0777, true);
+        }
+        echo "copy image file from $fromFile  to $toFile\n";
+        copy($fromFile,$toFile);
+    }
+    $rep = $match[1].home_url().'/wp-content/uploads/'.$year.$match[3].$match[4].$match[5].$match[6];
+    echo $rep."\n";
+    return $rep;
+}
 
 function endsWith($haystack, $needle)
 {
@@ -33,12 +68,13 @@ echo "current Time:${currentTIme}\n";
 //exec("git diff --name-only $lastCommit $headCommit",$result);
 
 if($lastSyncTime){
-    exec("find . -newermt '${lastSyncTime}' -type f",$result);
+    exec("find source/_posts -newermt '${lastSyncTime}' -type f",$result);
 }else{
-    exec("find .  -type f",$result);
+    exec("find source/_posts  -type f",$result);
 }
 $posts=[];
 foreach($result as $r){
+    echo "process $r\n";
     if(strpos($r,'_posts')>-1 && file_exists($r)){
         if(endsWith($r,".md")){
             $posts[] = $r;
@@ -56,27 +92,10 @@ foreach($result as $r){
                 }
                 preg_match( '/(^---(.*?)---)(.*)/ms', $content, $matches );
                 $content = array_pop( $matches );
+
                 if ( function_exists( 'wpmarkdown_markdown_to_html' ) ) {
                     // Inline Style Images
-                    $content    =   preg_replace_callback('/(!\[(.*)\]\s?\()(.*)(.png|.gif|.jpg|.jpeg)((.*)\))/',function($match){
-                        global $r;
-                        $year='';
-                        if (preg_match('/\d{4}/', $match[3], $year_matches)) {
-                            $year = $year_matches[0].'/';
-                        }
-                        $imagesFolder= dirname( __FILE__ ).'/wp-content/uploads/'.$year;
-                        $imageFile= dirname( __FILE__ ).'/wp-content/uploads/'.$year.$match[3].$match[4];
-                        $repoImageFile = dirname($r).'/'.$match[3].$match[4] ;
-                        if (file_exists($repoImageFile) && !file_exists($imageFile)) {
-                            if(!file_exists($imagesFolder)){
-                                mkdir($imagesFolder, 0777, true);
-                            }
-                            echo "copy image file from $repoImageFile  to $imageFile\n";
-                            copy($repoImageFile,$imageFile);
-                        }
-
-                        return $match[1].home_url().'/wp-content/uploads/'.$year.$match[3].$match[4].$match[5];
-                    },$content);
+                    $content    =   preg_replace_callback('/(!\[(.*)\]\s?\()(.*)((.png|.gif|.jpg|.jpeg)?)((.*)\))/',handleMdImage,$content);
                     // Reference Style Images
                    /* $content    =   preg_replace_callback('/\[(.*)\]:\s?(.*)(.png|.gif|.jpg|.jpeg)/',function($match){
                         return str_replace('your_search_term','your_replacement',$match[0]);
@@ -145,13 +164,13 @@ foreach($result as $r){
                 $arr = explode('_posts/',$r);
                 $path = $arr[1];
                 $sql = "select post_id from $wpdb->postmeta where meta_value like '%$path' and meta_key='postPath' order by post_id asc limit 1" ;
-                echo $sql."\n";
+               // echo $sql."\n";
                 $post_id = $wpdb->get_var($sql );
                 if($post_id){
                     echo "update post id $post_id\n";
                     $args['ID']=$post_id;
-                    print_r($args);
                     $post_id = wp_update_post( $args, true );
+
                 }else{
                     echo "insert new post id $post_id\n";
                     $post_id = wp_insert_post( $args, true ) ;

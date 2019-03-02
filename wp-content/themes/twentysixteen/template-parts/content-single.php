@@ -63,3 +63,5 @@
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 <?php echo do_shortcode('[yuzo_related]'); ?>
+<?php $postPath = get_post_meta(get_the_ID(),'postPath',false);
+if(count($postPath)>0)echo "<!-- ".trim($postPath[0])." -->";?>
