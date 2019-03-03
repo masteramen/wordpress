@@ -3561,7 +3561,6 @@ p > video {
   }
 
   body:not(.search-results) article:not(.type-page) .entry-footer {
-    float: left;
     margin-top: 0.1538461538em;
   }
 
