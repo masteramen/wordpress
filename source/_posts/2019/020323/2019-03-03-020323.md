@@ -1,0 +1,72 @@
+---
+layout: post
+title: "Spring @Transactional注解 和synchronized关键字不能同时使用的原因"
+date: 2019-03-03 08:37:24  +0800
+source: ""
+fileName: "020323"
+lang: "zh_CN"
+published: true
+categories: [spring]
+tags: [事务]
+---
+
+Service 层的开启事务方法时使用 synchronized 修饰，无法保证数据的一致性的。
+例如下面的方法：
+
+```
+@Service
+public class UserService{
+
+    @Autowired
+    private UserRepository userRepository;
+
+     @Transactional
+     public void synchronized  increaseUserGrade(Integer uid) {
+        User user = userRepository.getOne(uid);
+        Integer grade = user.getGrade();
+        user.setGrade(grade + 1);
+        userRepository.save(user);
+     }
+
+```
+
+原因是由于 事务的底层是 Spring AOP，而 Spring AOP 的底层是动态代理技术，会在 increaseUserGrade 方法之前开启事务，之后再加锁，当锁住的代码执行完成后，再提交事务，
+在多线程环境下，就有可能出现前一个事物还未提交情况下，其他线程先进入 synchronized 代码块，并读取了数据库的旧数据。
+
+_解决问题_
+从上面我们可以发现，问题是因为@Transcational 注解和 synchronized 一起使用，加锁的范围没有包括到整个事务，我可以使用另外一个 新建的 Service 类对方法进行包装，使 synchronized 覆盖整个事物范围：
+
+例如：
+
+```
+// 新建的Service类
+@Service
+public class SynchronizedService {
+
+    @Autowired
+    private UserService userService ;
+
+    // 同步
+    public synchronized void synchronizedIncreaseUserGradee() {
+        userService.increaseUserGrade();
+
+    }
+}
+
+@Service
+public class UserService{
+
+    @Autowired
+    private UserRepository userRepository;
+
+     @Transactional
+     public void   increaseUserGrade(Integer uid) {
+        User user = userRepository.getOne(uid);
+        Integer grade = user.getGrade();
+        user.setGrade(grade + 1);
+        userRepository.save(user);
+     }
+
+```
+
+这样 synchronized 锁的范围包含了整个 Spring 事务上，确保执行的顺序，这就不会出现线程安全的问题了，保证数据的一致性。
