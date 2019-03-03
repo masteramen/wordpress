@@ -34,7 +34,7 @@ public class UserService{
 在多线程环境下，就有可能出现前一个事物还未提交情况下，其他线程先进入 synchronized 代码块，并读取了数据库的旧数据。
 
 _解决问题_
-从上面我们可以发现，问题是因为@Transcational 注解和 synchronized 一起使用，加锁的范围没有包括到整个事务，我可以使用另外一个 新建的 Service 类对方法进行包装，使 synchronized 覆盖整个事物范围：
+从上面我们可以发现，问题是因为@Transcational 注解和 synchronized 一起使用，加锁的范围没有包括到整个事务，我可以使用另外一个 新建的 Service 类对方法进行包装，使 synchronized 覆盖整个事物范围。
 
 例如：
 
