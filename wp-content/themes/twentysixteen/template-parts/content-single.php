@@ -12,7 +12,20 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
+	<div class="entry-footer" style="margin-bottom:20px;">
+		<?php twentysixteen_entry_meta(); ?>
+		<?php
+			edit_post_link(
+				sprintf(
+					/* translators: %s: Name of current post */
+					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+		?>
+	</div><!-- .entry-footer -->
 	<?php twentysixteen_excerpt(); ?>
 
 	<?php twentysixteen_post_thumbnail(); ?>

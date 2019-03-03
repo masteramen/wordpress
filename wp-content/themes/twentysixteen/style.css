@@ -1670,7 +1670,7 @@ blockquote:after,
  */
 
 .site-main > article {
- /* margin-bottom: 1em;*/
+  /* margin-bottom: 1em;*/
   position: relative;
 }
 
@@ -3563,7 +3563,6 @@ p > video {
   body:not(.search-results) article:not(.type-page) .entry-footer {
     float: left;
     margin-top: 0.1538461538em;
-    width: 21.42857143%;
   }
 
   body:not(.search-results)
@@ -3582,7 +3581,8 @@ p > video {
   body:not(.search-results) article:not(.sticky) .posted-on,
   body:not(.search-results) article:not(.type-page) .comments-link,
   body:not(.search-results) article:not(.type-page) .entry-footer .edit-link {
-    display: block;
+    display: inline-block;
+    padding-left: 10px;
     margin-bottom: 0.5384615385em;
   }
 
@@ -3610,7 +3610,6 @@ p > video {
   body.no-sidebar:not(.search-results) article:not(.type-page) .entry-footer {
     margin-right: -100%;
     margin-left: 15%;
-    width: 15%;
   }
 }
 
