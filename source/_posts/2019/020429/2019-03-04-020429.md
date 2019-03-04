@@ -24,7 +24,7 @@ docker run -ti --rm -v ${HOME}:/root -v $(pwd):/git alpine/git clone https://git
 
 push:
 ```
-docker run -ti --rm -v /c/Users/AlexWong:/root -v /c/Users/AlexWong/git/ccio:/git alpine/git push
+docker run -ti --rm -v ${HOME}:/root -v $(pwd):/git alpine/git push
 ```
 
 在*nix 环境下，还可以建立命令别名，少打些字:
