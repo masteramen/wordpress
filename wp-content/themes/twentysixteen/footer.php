@@ -53,8 +53,9 @@
 					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
 				}
 				?>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentysixteen' ) ); ?>" class="imprint">
-					<?php printf( __( 'Proudly powered by %s', 'twentysixteen' ), 'WordPress' ); ?>
+				
+				<a target="_blank" href="<?php echo esc_url( __( 'https://cctranslate.github.io/', 'twentysixteen' ) ); ?>" class="imprint">
+					<?php printf( __( '%s', 'twentysixteen' ), 'CcTranslate' ); ?>
 				</a>
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->
