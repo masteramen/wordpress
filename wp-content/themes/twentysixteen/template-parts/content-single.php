@@ -29,8 +29,6 @@
 	<?php twentysixteen_excerpt(); ?>
 
 	<?php twentysixteen_post_thumbnail(); ?>
-
-	<div class="entry-content">
 <!-- autosize_top -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -41,6 +39,8 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+	<div class="entry-content">
+
 		<?php
 			the_content();
 
