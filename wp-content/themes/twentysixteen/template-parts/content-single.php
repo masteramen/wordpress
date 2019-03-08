@@ -31,6 +31,16 @@
 	<?php twentysixteen_post_thumbnail(); ?>
 
 	<div class="entry-content">
+<!-- autosize_top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9477174171188196"
+     data-ad-slot="6428133550"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 		<?php
 			the_content();
 
