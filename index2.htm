@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            clear: both;
+        }
+
+        .navbar-left {
+            float: left;
+        }
+
+        .navbar-right {
+            float: right;
+        }
+
+        .navbar-nav h1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .nav {
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+
+        .nav>li {
+            position: relative;
+            display: block;
+        }
+
+        .nav-tabs>li {
+            float: left;
+            margin-bottom: -1px;
+            background-color: #0097E0;
+        }
+
+        .nav-tabs>li.active {
+
+            background-color: blueviolet;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 80%;
+            color: #686868;
+            clear: both;
+        }
+
+        #toppan a {
+            color: #018bc9;
+        }
+
+        .online {
+            float: right;
+        }
+
+        .cf:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .name {
+            float: left;
+        }
+        .r{margin-top:15px;border-bottom: 1px solid #eee;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar-nav navbar-left">
+            <h1>Logo</h1>
+        </div>
+        <div id="toppan" class="nav navbar-nav navbar-right"><a href="#">Login</a> | <a href="#">Regist</a></div>
+    </div>
+    <div class="container" style="padding-top:15px;padding-bottom:15px;">
+        <ul class="nav nav-tabs">
+            <li style="width:50%" class="active">List</li>
+            <li style="width:50%">Log</li>
+        </ul>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="container">
+        <ul>
+            <li>
+                <div class="r">
+                    <div>
+                        <div class="name">MR.Li</div>
+                        <div class="online cf">online</div>
+                    </div>
+                    <div class="info"><span>21 可</span> | <span>21 可</span> <span>廣東</span></div>
+                </div>
+                <div class="r">
+                        <div>
+                            <div class="name">MR.Wong</div>
+                            <div class="online cf">online</div>
+                        </div>
+                        <div class="info"><span>21 可</span> | <span>21 可</span> <span>廣東</span></div>
+                    </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
