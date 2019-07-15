@@ -20,7 +20,7 @@ spec:
     - host: testk8s.local
       http:
         paths:
-        - path: /d
+        - path: /
           backend:
             serviceName: kubernetes-dashboard
             servicePort: 443
