@@ -5,12 +5,15 @@ metadata:
   namespace: kube-system
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.org/ssl-services: kubernetes-dashboard
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/secure-backends: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /    #不加这个重定向后的url会带过去
+    nginx.ingress.kubernetes.io/rewrite-target: /$1   #不加这个重定向后的url会带过去
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"  #如果后端是https协议必须
+    nginx.org/ssl-services: kubernetes-dashboard
+    #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+
+    #nginx.ingress.kubernetes.io/configuration-snippet: rewrite ^(/dashboard)$ $1/ permanent;
+
 
 
 spec:
@@ -20,7 +23,7 @@ spec:
     - host: testk8s.local
       http:
         paths:
-        - path: /
+        - path: /dashboard/?(.*)
           backend:
             serviceName: kubernetes-dashboard
             servicePort: 443
