@@ -1,1 +1,1 @@
-{"contents":[{"id":61,"title":"typeperf | Microsoft Docs","link":"https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf"}]}
+{"contents":[{"id":62,"title":"windows - How to get the Percentage of memory utilization using WMIC in batch script? - Stack Overflow","link":"https://stackoverflow.com/questions/37338476/how-to-get-the-percentage-of-memory-utilization-using-wmic-in-batch-script"},{"id":61,"title":"typeperf | Microsoft Docs","link":"https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf"}]}
