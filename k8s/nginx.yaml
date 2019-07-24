@@ -15,7 +15,7 @@ spec:
         app: nginx0
     spec:
       nodeSelector: 
-        type: masterNode
+        type: master01
       containers:
       - name: nginx
         image: k8s.gcr.io/nginx:1.7.9
