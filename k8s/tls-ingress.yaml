@@ -20,5 +20,5 @@ spec:
           servicePort: 443
       - path: /web
         backend:
-          serviceName: my-nginx
+          serviceName: nginx0
           servicePort: 80

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx0-deployment
+  labels:
+    app: nginx0-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx0
+  template:
+    metadata:
+      labels:
+        app: nginx0
+    spec:
+      containers:
+      - name: nginx
+        image: k8s.gcr.io/nginx:1.7.9
+        volumeMounts:
+        - name: shared-data
+          mountPath: /usr/share/nginx/html
+        ports:
+        - containerPort: 80
+          name: web
+      volumes:
+        - name : shared-data
+          hostPath:
+                path: /var/www/
+                type: Directory
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx0
+  labels:
+    app: nginx0
+spec:
+  selector:
+    app: nginx0
+  ports:
+  - name: web
+    port: 80
+    targetPort: web
