@@ -2,15 +2,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: jenkins2
+  name: jenkins
 spec:
   template:
     metadata:
       labels:
-        app: jenkins2
+        app: jenkins
     spec:
       terminationGracePeriodSeconds: 10
-      serviceAccountName: jenkins2
+      serviceAccountName: jenkins
+      nodeSelector:
+        type: master01
       containers:
       - name: jenkins
         image: jenkins/jenkins:lts
@@ -39,7 +41,7 @@ spec:
           failureThreshold: 12
         volumeMounts:
         - name: jenkinshome
-          subPath: jenkins2
+          subPath: jenkins
           mountPath: /var/jenkins_home
         env:
         - name: JAVA_OPTS
@@ -56,12 +58,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins2
+  name: jenkins
   labels:
-    app: jenkins2
+    app: jenkins
 spec:
   selector:
-    app: jenkins2
+    app: jenkins
   ports:
   - name: web
     port: 8080
