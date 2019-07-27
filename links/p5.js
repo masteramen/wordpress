@@ -1,1 +1,1 @@
-{"contents":[{"id":81,"title":"SpringCloud注册中心Consul及服务调用Feign","link":"https://www.nmyswls.com/article/105/1"}]}
+{"contents":[{"id":82,"title":"jenkins的容器化部署以及k8s应用的CI/CD实现-云时代IT运维-51CTO博客","link":"https://blog.51cto.com/zgui2000/2388326"},{"id":81,"title":"SpringCloud注册中心Consul及服务调用Feign","link":"https://www.nmyswls.com/article/105/1"}]}
