@@ -11,8 +11,8 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       serviceAccountName: jenkins
-      nodeSelector:
-        type: master01
+      #nodeSelector:
+        #type: master01
       containers:
       - name: jenkins
         image: jenkins/jenkins:lts
@@ -51,7 +51,7 @@ spec:
       volumes:
       - name: jenkinshome
         hostPath:
-          path: /var/jenkinshome
+          path: /var/jenkins_home
           type: Directory
 
 ---
