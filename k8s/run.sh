@@ -5,4 +5,5 @@ kubectl create secret tls k7s-dashboard-secret --cert=tls.crt --key=tls.key
 systemctl daemon-reload
 systemctl show --property=Environment docker
 systemctl restart docker
+strace -f -e trace=network -s 10000 kubectl get nodes
 
