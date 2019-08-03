@@ -10,8 +10,8 @@ spec:
         app: nodenpm
     spec:
       terminationGracePeriodSeconds: 10
-      nodeSelector:
-        type: master01
+      #nodeSelector:
+        #type: master01
       containers:
       - name: node
         image: node:10-alpine
@@ -31,7 +31,7 @@ spec:
       volumes:
       - name: apps
         hostPath:
-          path: /git/reactapp
+          path: /Users/alexwang/git/reactapp
           type: Directory
 
 ---
