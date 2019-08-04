@@ -50,6 +50,9 @@ spec:
     targetPort: web
 
 
+#openssl req -new -x509 -key tls.key -out tls.crt -subj /C=CN/ST=Beijing/L=Beijing/O=DevOps/CN=tomcat.along.com
+#kubectl create secret tls tomcat-ingress-secret --cert=tls.crt --key=tls.key
+#kubectl create secret tls k7s-dashboard-secret --cert=tls.crt --key=tls.key
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -61,7 +64,7 @@ metadata:
 
 spec:
   tls:
-   - secretName: k8s-dashboard-secret
+   - secretName: tls-secret
   rules:
     - host: npm.local
       http:
