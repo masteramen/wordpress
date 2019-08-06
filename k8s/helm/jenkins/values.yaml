@@ -351,9 +351,9 @@ master:
 agent:
   enabled: true
   #image: "jenkins/jnlp-slave"
-  image: "cnych/jenkins:jnlp"
+  image: "cnych/jenkins"
   #tag: "3.27-1"
-  tag: "latest"
+  tag: "jnlp"
   customJenkinsLabels: []
   # name of the secret to be used for image pulling
   imagePullSecretName:

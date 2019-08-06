@@ -11,12 +11,20 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       serviceAccountName: jenkins
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 1000
+        fsGroup: 2000
       #nodeSelector:
         #type: master01
       containers:
       - name: jenkins
-        image: jenkins/jenkins:lts
+        image: jenkinsci/blueocean  #jenkins/jenkins:lts
         imagePullPolicy: IfNotPresent
+        securityContext: 
+           runAsUser: 0
+           allowPrivilegeEscalation: false
+        #  privileged: true
         ports:
         - containerPort: 8080
           name: web
@@ -43,16 +51,23 @@ spec:
         - name: jenkinshome
           subPath: jenkins
           mountPath: /var/jenkins_home
+        - name: docker
+          mountPath: /var/run/docker.sock
         env:
         - name: JAVA_OPTS
           value:  -XshowSettings:vm -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Duser.timezone=Asia/Shanghai
       securityContext:
         fsGroup: 1000
       volumes:
+      - name: docker
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
       - name: jenkinshome
         hostPath:
-          path: /var/jenkins_home
+          path: /Users/alexwang/jenkins_home
           type: DirectoryOrCreate
+
 
 ---
 apiVersion: v1
